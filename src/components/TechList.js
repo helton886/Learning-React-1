@@ -7,7 +7,6 @@ class TechList extends Component {
     techs: [],
   };
 
-  //executado assim que o componente é renderizado
   componentDidMount() {
     const techs = localStorage.getItem('techs');
 
@@ -16,17 +15,11 @@ class TechList extends Component {
     }
   }
 
-  //executado sempre que houver alteração no state/props
   componentDidUpdate(prevProps, prevState) {
     if (prevState.techs !== this.state.techs) {
       localStorage.setItem('techs', JSON.stringify(this.state.techs));
     }
-    //this.props
-    //this.state
   }
-
-  // Executado quando o componente deixa de existir
-  componentWillUnmount() {}
 
   handleInputChange = (e) => {
     this.setState({ newTech: e.target.value });
